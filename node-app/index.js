@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const userRouter = require('./routes/user.js');
 const productRouter = require('./routes/products.js');
-//const orderRouter = require('./routes/order.js');
+const orderRouter = require('./routes/order.js');
+const cartRouter = require('./routes/cart.js');
 
 const app = express();
 app.use(bodyParser.json());
@@ -27,7 +28,8 @@ mongoose.connect(DBCONNECT).then(()=>{
 
 app.use("/users", userRouter);
 app.use("/products",productRouter);
-//app.use("/orders",orderRouter);
+app.use("/orders",orderRouter);
+app.use("/carts",cartRouter);
 app.get('/', (req,res)=>{
     res.send(`Welcome to The Homepage.`);
 });
@@ -36,5 +38,3 @@ app.get('/', (req,res)=>{
 
 
 
-//Username: kanchanbasnet5
-//password:RulXJ7CD6wwWJrPT
