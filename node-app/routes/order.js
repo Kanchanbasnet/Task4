@@ -1,12 +1,11 @@
 const express = require('express');
-const {viewcart, getOrderById, addToCart, checkout, getOrder}= require('../controllers/OrderController.js');
+const {getOrderById, checkout,getOrder}= require('../controllers/OrderController.js');
 
 const orderRouter = express.Router();
-orderRouter.get('/', getOrder);
-//orderRouter.post('/addToCart',addToCart);
-//orderRouter.post('/checkout',checkout);
-orderRouter.get('/viewcart/:id',viewcart);
-orderRouter.get('/:id',getOrderById);
+
+orderRouter.post('/checkout/:cartId',checkout);
+orderRouter.get('/',getOrder);
+orderRouter.get('/:orderId',getOrderById);
 
 
 
